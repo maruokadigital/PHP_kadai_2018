@@ -46,24 +46,24 @@
 <hr />
 <h2>1+2+3・・・+ n &gt; <?php print($l);?> となる最初のnを探す</h2>
 <p>while文を使い、条件に合うまで繰り返します</p>
-<p>n = <?php
+<?php
 	while($sum < $l){
 		$c++;
 		$sum += $c;
 	}
 
-	print $c;
-	?> のとき、合計は <?php print $sum;?> となる</p>
+	print("<p>n = {$c} のとき、合計は  {$sum}となる</p>");?>
 <hr />
 <h2>関数を作った上で 1+2+3・・・+ n &gt; <?php print($l);?> となる最初のnを探す</h2>
 <p>function goukei($n) を定義してください。その関数で　1+2+3・・・n　を実施します</p>
-<p>n = <?php
+<?php
 $c=0;
 while(goukei($c) < $l){
 	$c++;
 }
-print $c;
-?> のとき、合計は <?php print(goukei($c));?> となる</p>
+$sum=goukei($c);
+ print("<p>n = {$c} のとき、合計は  {$sum}となる</p>");
+ ?>
 <?php
 function goukei($n){
 	$sum = 0;
@@ -75,4 +75,19 @@ function goukei($n){
 
 }
 ?>
+<hr />
+<h2>上級者向け　1+2+3・・・+ n  &lt; <?php print($l);?> となる最大のnを探し、そこまでの過程を表示する</h2>
+<p><?php
+$c=0;
+while(goukei($c) < $l){
+	$c++;
+}
+$c--;
+for ($i=$c; $i>0; $i--){
+	?>n = <?php
+	print $i;
+	?> のとき、合計は <?php print(goukei($i));?> となる<br />
+
+<?php } ?>
+</p>
 </body>
